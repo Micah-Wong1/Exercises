@@ -1,3 +1,4 @@
+import random
 from math import pi
 
 """
@@ -6,7 +7,8 @@ Gr: 406
 Ce code est la premiere exercise
 """
 
-#exercise 1
+# exercise 1
+
 
 class Stringfoo:
 
@@ -26,7 +28,8 @@ string1 = Stringfoo()
 string1.set_string(reponse)
 string1.print_string()
 
-#exercise 2
+# exercise 2
+
 
 class Rectangle:
 
@@ -50,7 +53,8 @@ rectangle1 = Rectangle(base, hauteur)
 rectangle1.calcul_aire()
 rectangle1.affiche_infos()
 
-#exercise 3
+# exercise 3
+
 
 class Cercle:
 
@@ -73,17 +77,39 @@ circle = Cercle(r)
 circle.calcul_aire_cir()
 circle.calcul_circonferance()
 
-#exercise 4
+# exercise 4
+
 
 class Hero:
 
-    def __init__(self, nom, hp, attaque, defense):
+    def __init__(self, nom):
         self.name = nom
-        self.HP = hp
-        self.atk = attaque
-        self.blk = defense
+        self.HP = random.randint(1, 10) + random.randint(1, 10)
+        self.atk = random.randint(1, 6)
+        self.blk = random.randint(1, 6)
+        self.dommage = 0
+        print(f"HP = {self.HP}")
+        print(f"attaque = {self.atk}")
+        print(f"block = {self.blk}")
+        print(f"name = {self.name}")
 
     def faire_attaque(self):
+        return random.randint(1, 6) + self.atk
+
+    def recevoir_dommages(self, dmg):
+        self.dommage = dmg
+        self.HP -= self.dommage - self.blk
+
+    def est_vivant(self):
+        if self.HP <= 0:
+            print("dead")
+            return False
+        else:
+            print("alive")
+            return True
 
 
-superman = Hero("Clark", 10, 5, 6)
+superman = Hero("Clark")
+superman.recevoir_dommages(15)
+superman.est_vivant()
+
