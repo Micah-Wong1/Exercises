@@ -1,4 +1,5 @@
 import random
+from dataclasses import dataclass
 from math import pi
 
 """
@@ -113,3 +114,67 @@ superman = Hero("Clark")
 superman.recevoir_dommages(15)
 superman.est_vivant()
 
+# exercise 5
+
+
+@dataclass
+class DnD:
+
+    force = random.randint(1, 20)
+    dexterite = random.randint(1, 20)
+    constitution = random.randint(1, 20)
+    intelligence = random.randint(1, 20)
+    sagesse = random.randint(1, 20)
+    charisme = random.randint(1, 20)
+
+
+Batman = DnD()
+print(f"{Batman.force}")
+
+# exercise 6
+
+
+@dataclass
+class DnD:
+
+    force = random.randint(1, 20)
+    dexterite = random.randint(1, 20)
+    constitution = random.randint(1, 20)
+    intelligence = random.randint(1, 20)
+    sagesse = random.randint(1, 20)
+    charisme = random.randint(1, 20)
+
+
+class Hero:
+
+    def __init__(self, nom):
+        self.stats = DnD()
+        self.name = nom
+        self.HP = DnD.constitution
+        self.atk = DnD.force + DnD.dexterite
+        self.blk = DnD.constitution + DnD.force
+        self.dommage = 0
+        print(f"HP = {self.HP}")
+        print(f"attaque = {self.atk}")
+        print(f"block = {self.blk}")
+        print(f"name = {self.name}")
+
+    def faire_attaque(self):
+        return random.randint(1, 6) + self.atk
+
+    def recevoir_dommages(self, dmg):
+        self.dommage = dmg
+        self.HP -= self.dommage - self.blk
+
+    def est_vivant(self):
+        if self.HP <= 0:
+            print("dead")
+            return False
+        else:
+            print("alive")
+            return True
+
+
+superman = Hero("Clark")
+superman.recevoir_dommages(15)
+superman.est_vivant()
