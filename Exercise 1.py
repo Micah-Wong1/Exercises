@@ -5,7 +5,7 @@ from math import pi
 """
 Nom: Micah Wong
 Gr: 406
-Ce code est la premiere exercise
+Ce code est la premiere exercise de POO
 """
 
 # exercise 1
@@ -149,7 +149,6 @@ class DnD:
 class Hero:
 
     def __init__(self, nom):
-        self.stats = DnD()
         self.name = nom
         self.HP = DnD.constitution
         self.atk = DnD.force + DnD.dexterite
