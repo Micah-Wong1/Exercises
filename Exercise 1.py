@@ -128,8 +128,9 @@ class DnD:
     charisme = random.randint(1, 20)
 
 
-Batman = DnD()
-print(f"{Batman.force}")
+ironman = DnD()
+print(f"{ironman.force}")
+
 
 # exercise 6
 
@@ -175,6 +176,6 @@ class Hero:
             return True
 
 
-superman = Hero("Clark")
-superman.recevoir_dommages(15)
-superman.est_vivant()
+batman = Hero("Bruce")
+batman.recevoir_dommages(15)
+batman.est_vivant()
