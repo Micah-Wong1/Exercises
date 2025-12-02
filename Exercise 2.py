@@ -24,12 +24,9 @@ def base_stat():
     return stat
 
 
-print(base_stat())
-
-
 class NPC:
 
-    def __init__(self, nom, race, espece, metier):
+    def __init__(self):
         self.Force = base_stat()
         self.Agility = base_stat()
         self.Constitution = base_stat()
@@ -37,11 +34,11 @@ class NPC:
         self.Sagesse = base_stat()
         self.Charisme = base_stat()
         self.Armure = random.randint(1, 12)
-        self.Nom = nom
-        self.Race = race
-        self.Espece = espece
+        self.Nom = ""
+        self.Race = ""
+        self.Espece = ""
         self.HP = 20
-        self.Profession = metier
+        self.Profession = ""
 
     def afficher_caracteristiques(self):
         print(f"Nom = {self.Nom}")
@@ -58,5 +55,49 @@ class NPC:
         print(f"Armure = {self.Armure}")
 
 
-Civilian = NPC("Victor", "Asian", "Humain", "Scientifique")
-Civilian.afficher_caracteristiques()
+class Kobold(NPC):
+
+    def __init__(self):
+        super().__init__()
+
+    def attaquer(self, cible):
+        power = random.randint(1, 20)
+        if power == 1:
+            pass
+        elif power == 20:
+            cible.subir_dommages(8)
+        else:
+            if power >= cible.Armure:
+                cible.subir_dommages(6)
+            else:
+                pass
+        print(f"Health left: {cible.HP}")
+
+    def subir_dommages(self, dmg):
+        self.HP = self.HP - dmg
+
+
+class Hero(NPC):
+    def __init__(self):
+        super().__init__()
+
+    def attaquer(self, cible):
+        power = random.randint(1, 20)
+        if power == 1:
+            pass
+        elif power == 20:
+            cible.subir_dommages(8)
+        else:
+            if power >= cible.Armure:
+                cible.subir_dommages(6)
+            else:
+                pass
+        print(f"Health left: {cible.HP}")
+
+    def subir_dommages(self, dmg):
+        self.HP = self.HP - dmg
+
+
+boss_1 = Kobold()
+superman = Hero()
+superman.attaquer(boss_1)
