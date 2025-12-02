@@ -66,11 +66,14 @@ class Kobold(NPC):
             pass
         elif power == 20:
             cible.subir_dommages(8)
+            print("ATTAQUE CRITIQUE!!")
         else:
             if power >= cible.Armure:
                 cible.subir_dommages(6)
+                print("Attaque normal!")
             else:
                 pass
+                print("Attaque raté...")
         print(f"Health left: {cible.HP}")
 
     def subir_dommages(self, dmg):
@@ -87,11 +90,14 @@ class Hero(NPC):
             pass
         elif power == 20:
             cible.subir_dommages(8)
+            print("ATTAQUE CRITIQUE!!")
         else:
             if power >= cible.Armure:
                 cible.subir_dommages(6)
+                print("Attaque normal!")
             else:
                 pass
+                print("Attaque raté...")
         print(f"Health left: {cible.HP}")
 
     def subir_dommages(self, dmg):
@@ -99,5 +105,16 @@ class Hero(NPC):
 
 
 boss_1 = Kobold()
+boss_1.Nom = "Verka"
+boss_1.Race = "Kobold Bleu"
+boss_1.Espece = "Koblod"
+boss_1.Profession = "Villan"
+boss_1.afficher_caracteristiques()
 superman = Hero()
+superman.Nom = "Clark"
+superman.Race = "Kryptonian"
+superman.Espece = "Kryptonian"
+superman.Profession = "Hero"
+superman.afficher_caracteristiques()
 superman.attaquer(boss_1)
+boss_1.attaquer(superman)
