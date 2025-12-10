@@ -60,7 +60,8 @@ class Kobold(NPC):
     def __init__(self):
         super().__init__()
 
-    def attaquer(self, cible):
+    @staticmethod
+    def attaquer(cible):
         power = random.randint(1, 20)
         if power == 1:
             pass
@@ -84,7 +85,8 @@ class Hero(NPC):
     def __init__(self):
         super().__init__()
 
-    def attaquer(self, cible):
+    @staticmethod
+    def attaquer(cible):
         power = random.randint(1, 20)
         if power == 1:
             pass
