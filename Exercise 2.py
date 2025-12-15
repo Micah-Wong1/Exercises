@@ -65,6 +65,7 @@ class Kobold(NPC):
         power = random.randint(1, 20)
         if power == 1:
             pass
+            print("Attaque raté...")
         elif power == 20:
             cible.subir_dommages(8)
             print("ATTAQUE CRITIQUE!!")
@@ -90,6 +91,7 @@ class Hero(NPC):
         power = random.randint(1, 20)
         if power == 1:
             pass
+            print("Attaque raté...")
         elif power == 20:
             cible.subir_dommages(8)
             print("ATTAQUE CRITIQUE!!")
