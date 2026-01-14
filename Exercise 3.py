@@ -83,10 +83,12 @@ class Inventory:
     def __init__(self):
         self.Items = []
 
+
     @staticmethod
     def ajouter_item(self):
         item_added = input("Entrez l'item:")
         self.Items.append(item_added)
+
 
     @staticmethod
     def retirer_item(self):
