@@ -39,13 +39,6 @@ class Alignments(Enum):
     undefined = 10
 
 
-@dataclass
-class Item:
-
-    nom_item = ""
-    quantite_item = int()
-
-
 class NPC:
 
     def __init__(self):
@@ -78,22 +71,29 @@ class NPC:
         print(f"Armure = {self.Armure}")
 
 
+@dataclass
+class Item:
+
+    nom_item: str
+    quantite_item: int
+
+
 class Inventory:
 
     def __init__(self):
         self.Items = []
 
-
-    @staticmethod
-    def ajouter_item(self):
-        item_added = input("Entrez l'item:")
+    def ajouter_item(self, item_added: Item):
         self.Items.append(item_added)
 
+    def retirer_item(self, nom_item, quantite_item):
+        pass
 
-    @staticmethod
-    def retirer_item(self):
-        item_removed = input("Entrez l'item:")
-        self.Items.remove(item_removed)
+
+inv = Inventory()
+stylo = Item("Stylo", 2)
+inv.ajouter_item(Item("Stylo", 2))
+inv.retirer_item(stylo, 1)
 
 
 class Kobold(NPC):
