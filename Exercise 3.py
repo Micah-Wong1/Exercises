@@ -81,19 +81,50 @@ class Item:
 class Inventory:
 
     def __init__(self):
-        self.Items = []
+        self.items = []
 
     def ajouter_item(self, item_added: Item):
-        self.Items.append(item_added)
+        item_found = False
+        if len(self.items) <= 0:
+            self.items.append(item_added)
+        else:
+            for item in self.items:
+                if item.nom_item == item_added.nom_item:
+                    item.quantite_item += item_added.quantite_item
+                    item_found = True
+            if not item_found:
+                self.items.append(item_added)
 
     def retirer_item(self, nom_item, quantite_item):
-        pass
+        item_trouve = False
+        if len(self.items) <= 0:
+            return
+
+        for item in self.items:
+            if item.nom_item == nom_item:
+                item_trouve = True
+                if item.quantite_item - quantite_item < 0:
+                    print("Erreur: quantité insuffisante")
+                    return
+                elif item.quantite_item - quantite_item == 0:
+                    self.items.remove(item)
+                else:
+                    item.quantite_item -= quantite_item
+        if not item_trouve:
+            print("Erreur: Item non-trouve")
+
+    def voir_contenu(self):
+        print(self.items)
 
 
 inv = Inventory()
-stylo = Item("Stylo", 2)
+inv.ajouter_item(Item("Stylo", 1))
 inv.ajouter_item(Item("Stylo", 2))
-inv.retirer_item(stylo, 1)
+inv.ajouter_item(Item("Ruler", 1))
+inv.retirer_item("Stylo", 2)
+inv.retirer_item("Ruler", 2)
+inv.retirer_item("nothing", 1)
+inv.voir_contenu()
 
 
 class Kobold(NPC):
@@ -132,6 +163,7 @@ class Kobold(NPC):
 class Hero(NPC):
     def __init__(self):
         super().__init__()
+        self.inven = Inventory()
 
     @staticmethod
     def attaquer(cible):
