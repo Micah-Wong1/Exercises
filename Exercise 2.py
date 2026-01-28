@@ -64,7 +64,6 @@ class Kobold(NPC):
     def attaquer(cible):
         power = random.randint(1, 20)
         if power == 1:
-            pass
             print("Attaque raté...")
         elif power == 20:
             cible.subir_dommages(8)
@@ -74,7 +73,6 @@ class Kobold(NPC):
                 cible.subir_dommages(6)
                 print("Attaque normal!")
             else:
-                pass
                 print("Attaque raté...")
         print(f"Health left: {cible.HP}")
 
@@ -90,7 +88,6 @@ class Hero(NPC):
     def attaquer(cible):
         power = random.randint(1, 20)
         if power == 1:
-            pass
             print("Attaque raté...")
         elif power == 20:
             cible.subir_dommages(8)
@@ -100,7 +97,6 @@ class Hero(NPC):
                 cible.subir_dommages(6)
                 print("Attaque normal!")
             else:
-                pass
                 print("Attaque raté...")
         print(f"Health left: {cible.HP}")
 

@@ -27,16 +27,16 @@ def base_stat():
 
 
 class Alignments(Enum):
-    lawful_good = 1
-    lawful_neutral = 2
-    lawful_evil = 3
-    neutral_good = 4
-    true_neutral = 5
-    neutral_evil = 6
-    chaotic_good = 7
-    chaotic_neutral = 8
-    chaotic_evil = 9
-    undefined = 10
+    LAWFUL_GOOD = 1
+    LAWFUL_NEUTRAL = 2
+    LAWFUL_EVIL = 3
+    NEUTRAL_GOOD = 4
+    TRUE_NEUTRAL = 5
+    NEUTRAL_EVIL = 6
+    CHAOTIC_GOOD = 7
+    CHAOTIC_NEUTRAL = 8
+    CHAOTIC_EVIL = 9
+    UNDEFINED = 10
 
 
 class NPC:
@@ -136,7 +136,6 @@ class Kobold(NPC):
     def attaquer(cible):
         power = random.randint(1, 20)
         if power == 1:
-            pass
             print("Attaque raté...")
         elif power == 20:
             cible.subir_dommages(8)
@@ -146,7 +145,6 @@ class Kobold(NPC):
                 cible.subir_dommages(6)
                 print("Attaque normal!")
             else:
-                pass
                 print("Attaque raté...")
         print(f"Health left: {cible.HP}")
 
@@ -169,7 +167,6 @@ class Hero(NPC):
     def attaquer(cible):
         power = random.randint(1, 20)
         if power == 1:
-            pass
             print("Attaque raté...")
         elif power == 20:
             cible.subir_dommages(8)
@@ -179,7 +176,6 @@ class Hero(NPC):
                 cible.subir_dommages(6)
                 print("Attaque normal!")
             else:
-                pass
                 print("Attaque raté...")
         print(f"Health left: {cible.HP}")
 
